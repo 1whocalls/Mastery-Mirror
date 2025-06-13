@@ -1,0 +1,7 @@
+@use 'variables';
+
+.strucure-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-medium);
+}

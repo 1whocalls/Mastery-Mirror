@@ -1,0 +1,16 @@
+@use '../base/variables';
+
+.button {
+    width: 100%;
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    background: var(--color-secondary);
+    border: none;
+    border-radius: var(--control-border-radius);
+    cursor: pointer;
+    padding: var(--spacing-small);
+
+    &:hover {
+        background: var(--color-secondary-light);
+    }
+}

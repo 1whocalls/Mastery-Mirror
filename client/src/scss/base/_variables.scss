@@ -1,3 +1,18 @@
+@use 'sass:color';
+
 :root {
     --background: #0d1b2a;
+    --color-primary: #415a77;
+    --color-secondary: #778da9;
+    --color-secondary-light: #96a7bd; // 10% lighter
+    --color-tertiary: #e0e1dd;
+    --color-white: #fff;
+    --font-size: 1rem;
+    --font-family: Arial, Helvetica, sans-serif;
+    --spacing-medium: 20px;
+    --spacing-small: 10px;
+    --spacing-tiny: 5px;
+    --control-border: 1px solid var(--color-tertiary);
+    --control-border-focus: 1px solid var(--color-primary);
+    --control-border-radius: 20px;
 }

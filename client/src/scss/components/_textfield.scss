@@ -1,0 +1,17 @@
+@use '../base/variables';
+
+.textfield {
+    color: var(--color-white);
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    background: transparent;
+    border: none;
+    border-bottom: var(--control-border);
+    padding: var(--spacing-small);
+
+    &:focus {
+        border: none;
+        border-bottom: var(--control-border-focus);
+        outline: none;
+    }
+}
