@@ -6,4 +6,7 @@ import './components/spinner/spinner';
 
 import './ts/pages/setup-page';
 
-import './ts/services/notification-service'; // Ensures only 1 NotificationSerice exists and is created
+// Ensures only 1 Service exists and is created
+import './ts/services/notification-service';
+import './ts/services/storage-service';
+import './ts/services/router-service';

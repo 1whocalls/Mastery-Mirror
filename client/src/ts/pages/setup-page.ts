@@ -1,5 +1,8 @@
+import type IAccountInfo from "../interfaces/i-account-info";
 import HttpService from "../services/http-service";
 import { Notification, notificationSerice } from "../services/notification-service";
+import { routerService, Routes } from "../services/router-service";
+import { StorageKeys, storageService } from "../services/storage-service";
 
 class SetupPage {
     constructor() {
@@ -21,10 +24,14 @@ class SetupPage {
             return;
         }
 
-        const response: string = await HttpService.getPuuid(gameName);
+        const response: IAccountInfo | null = await HttpService.getPuuid(gameName);
 
-        if (response != "") {
-            console.log(response);
+        if (response != null) {
+            storageService.save(StorageKeys.GameName, response.gameName);
+            storageService.save(StorageKeys.Puuid, response.puuid);
+            storageService.save(StorageKeys.TagLine, response.tagLine);
+
+            routerService.goToUrl(Routes.Champions);
         } else {
             notificationSerice.add(
                 new Notification('Game name is invalid', 3000)

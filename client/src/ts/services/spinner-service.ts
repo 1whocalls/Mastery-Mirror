@@ -3,7 +3,7 @@ class SpinnerService {
     private isShowing: boolean = false;
     private timer: number = 0;
     private timerValue: number = 0; // 1 = 1s
-    private minShowTime = 2; // In seconds
+    private minShowTime = 1; // In seconds
 
     constructor() {
         this.spinnerComponent = document.querySelector('[data-spinner]')!;

@@ -1,8 +1,9 @@
+import type IAccountInfo from '../interfaces/i-account-info';
 import Regions from '../regions.json';
 import SpinnerService from './spinner-service';
 
 class HttpService {
-    public async getPuuid(gameName: string): Promise<string> {
+    public async getPuuid(gameName: string): Promise<IAccountInfo | null> {
         SpinnerService.show();
 
         for (const element of Regions) {
@@ -13,13 +14,13 @@ class HttpService {
             if (response.ok) {
                 SpinnerService.hide();
 
-                return await response.json();
+                return JSON.parse(await response.json());
             }
         }
 
         SpinnerService.hide();
 
-        return "";
+        return null;
     }
 
     private async setDdragonVersion() {
