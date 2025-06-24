@@ -2,9 +2,19 @@ class StorageService {
     public save(key: string, value: string): void {
         localStorage.setItem(key, value);
     }
+
+    public get(key: string): string {
+        const item = localStorage.getItem(key);
+
+        if (item !== null) {
+            return item
+        }
+
+        return "";
+    }
 }
 
-export const StorageKeys = {
+export const storageKeys = {
     GameName: 'gamename',
     TagLine: 'tagline',
     Region: 'region',

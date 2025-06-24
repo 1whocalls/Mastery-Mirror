@@ -1,9 +1,13 @@
 /// <reference path="../../components/html.d.ts" />
-import SetupPage from '../../pages/setup/setup-page.html?raw';
-import ChampionsPage from '../../pages/champions/champions-page.html?raw';
+import SetupPageHtml from '../../pages/setup/setup-page.html?raw';
+import ChampionsPageHtml from '../../pages/champions/champions-page.html?raw';
+import ChampionsPage from '../pages/champions-page';
+import SetupPage from '../pages/setup-page';
+import type IPage from '../interfaces/i-page';
 
 class RouterService {
     private routerElement: HTMLElement;
+    private activePage: IPage = SetupPage;
 
     constructor() {
         this.routerElement = document.querySelector('router-component')!;
@@ -16,12 +20,19 @@ class RouterService {
     public getUrlHtml(url: string): string {
         switch (url) {
             case Routes.Setup:
-                return SetupPage;
+                this.activePage = SetupPage;
+                return SetupPageHtml;
             case Routes.Champions:
-                return ChampionsPage;
+                this.activePage = ChampionsPage;
+                return ChampionsPageHtml;
         }
 
-        return SetupPage;
+        this.activePage = SetupPage;
+        return SetupPageHtml;
+    }
+
+    public callUrlClass(): void {
+        this.activePage.pageCreate();
     }
 }
 

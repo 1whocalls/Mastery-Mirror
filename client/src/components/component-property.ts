@@ -20,4 +20,6 @@ export const HtmlAttribute = {
     InnerHtml: 'innerhtml',
     Placeholder: 'placeholder',
     Name: 'name',
+    Src: 'src',
+    Alt: 'alt',
 }

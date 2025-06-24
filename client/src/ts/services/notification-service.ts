@@ -13,7 +13,7 @@ class NotificationSerice {
         this.display();
     }
 
-    public async display() {
+    private async display() {
         const notification = this.notifications[0];
 
         if (this.isShowing) {
@@ -45,11 +45,11 @@ class NotificationSerice {
 
 export class Notification {
     private text: string;
-    private duration: number;
+    private duration: number; // 1 = 1s
 
     constructor(text: string, duration: number) {
         this.text = text;
-        this.duration = duration;
+        this.duration = duration * 1000;
     }
 
     public getText() {

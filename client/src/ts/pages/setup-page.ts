@@ -1,11 +1,12 @@
 import type IAccountInfo from "../interfaces/i-account-info";
+import type IPage from "../interfaces/i-page";
 import HttpService from "../services/http-service";
 import { Notification, notificationSerice } from "../services/notification-service";
 import { routerService, Routes } from "../services/router-service";
-import { StorageKeys, storageService } from "../services/storage-service";
+import { storageKeys, storageService } from "../services/storage-service";
 
-class SetupPage {
-    constructor() {
+class SetupPage implements IPage {
+    public pageCreate() {
         const forms = document.getElementsByTagName('form');
 
         for (const form of forms) {
@@ -27,9 +28,9 @@ class SetupPage {
         const response: IAccountInfo | null = await HttpService.getPuuid(gameName);
 
         if (response != null) {
-            storageService.save(StorageKeys.GameName, response.gameName);
-            storageService.save(StorageKeys.Puuid, response.puuid);
-            storageService.save(StorageKeys.TagLine, response.tagLine);
+            storageService.save(storageKeys.GameName, response.gameName);
+            storageService.save(storageKeys.Puuid, response.puuid);
+            storageService.save(storageKeys.TagLine, response.tagLine);
 
             routerService.goToUrl(Routes.Champions);
         } else {
@@ -40,4 +41,4 @@ class SetupPage {
     }
 }
 
-new SetupPage;
+export default new SetupPage;

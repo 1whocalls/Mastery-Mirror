@@ -34,6 +34,12 @@ export default class ComponentBase extends HTMLElement {
                 case HtmlAttribute.Name:
                     (html.querySelector(`[${attr}]`) as HTMLInputElement).name = value;
                     break;
+                case HtmlAttribute.Src:
+                    (html.querySelector(`[${attr}]`) as HTMLImageElement).src = value;
+                    break;
+                case HtmlAttribute.Alt:
+                    (html.querySelector(`[${attr}]`) as HTMLImageElement).alt = value;
+                    break;
             }
 
             this.removeAttr(attr);

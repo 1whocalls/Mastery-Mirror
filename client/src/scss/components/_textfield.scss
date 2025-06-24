@@ -1,12 +1,14 @@
 @use '../base/variables';
 
 .textfield {
+    width: 100%;
     color: var(--color-white);
     font-family: var(--font-family);
     font-size: var(--font-size);
     background: transparent;
     border: none;
     border-bottom: var(--control-border);
+    box-sizing: border-box;
     padding: var(--spacing-small);
 
     &:focus {

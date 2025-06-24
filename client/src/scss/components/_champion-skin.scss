@@ -1,0 +1,4 @@
+champion-skin-component:has(.champion-skin.hide) {
+    // Style component so flex gap doesnt cause issues
+    display: none;
+}
