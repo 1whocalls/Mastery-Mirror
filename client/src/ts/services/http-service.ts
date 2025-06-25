@@ -69,13 +69,19 @@ class HttpService {
         }
     }
 
-    private async getSkins(championName: string) {
-        const response: Response = await fetch(`https://ddragon.leagueoflegends.com/cdn/${/* Get ddragonVersion from storage */1}/data/en_US/champion/${championName}.json`);
+    public async getSkins() {
+        await this.setDdragonVersion();
+
+        const championName = storageService.get(storageKeys.ChampionName);
+        const response: Response = await fetch(`https://ddragon.leagueoflegends.com/cdn/${storageService.get(storageKeys.DDragonVersion)}/data/en_US/champion/${championName}.json`);
 
         if (response.ok) {
-            return response.body;
+            return await response.json();
         } else {
-            // Display message "Could not retrieve champion skins" for 3 seconds
+            notificationSerice.add(
+                new Notification('Could not retrieve champion skins', 3)
+            );
+
             return [];
         }
     }

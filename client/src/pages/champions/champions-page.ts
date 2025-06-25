@@ -1,6 +1,8 @@
-import type { IChampion } from "../interfaces/i-champions";
-import type IPage from "../interfaces/i-page";
-import httpService from "../services/http-service";
+import type { IChampion } from "../../ts/interfaces/i-champions";
+import type IPage from "../../ts/interfaces/i-page";
+import httpService from "../../ts/services/http-service";
+import { routerService, Routes } from "../../ts/services/router-service";
+import { storageKeys, storageService } from "../../ts/services/storage-service";
 
 class ChampionsPage implements IPage {
     private champions: Array<IChampion> = [];
@@ -36,6 +38,7 @@ class ChampionsPage implements IPage {
 
             if (championElement != null) {
                 this.championElements.push(new ChampionElement(champion.id, championElement));
+                championElement.addEventListener('click', this.click.bind(this, champion.id));
             }
         }
     }
@@ -50,6 +53,11 @@ class ChampionsPage implements IPage {
                 el.hide();
             }
         }
+    }
+
+    private click(id: string): void {
+        storageService.save(storageKeys.ChampionName, id);
+        routerService.goToUrl(Routes.Skins);
     }
 }
 
