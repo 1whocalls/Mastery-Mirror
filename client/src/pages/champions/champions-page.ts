@@ -56,7 +56,7 @@ class ChampionsPage implements IPage {
     }
 
     private click(id: string): void {
-        storageService.save(storageKeys.ChampionName, id);
+        storageService.set(storageKeys.ChampionName, id);
         routerService.goToUrl(Routes.Skins);
     }
 }

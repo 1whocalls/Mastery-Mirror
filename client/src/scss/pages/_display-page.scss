@@ -1,4 +1,6 @@
 .display {
+    cursor: pointer;
+
     &__champion {
         display: block; // inline image with 100vh causes scrollbar
         height: 100vh;

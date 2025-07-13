@@ -1,5 +1,6 @@
 import type IPage from "../../ts/interfaces/i-page";
 import httpService from "../../ts/services/http-service";
+import MenuService from "../../ts/services/menu-service";
 import { storageKeys, storageService } from "../../ts/services/storage-service";
 
 class DisplayPage implements IPage {
@@ -13,6 +14,8 @@ class DisplayPage implements IPage {
         this.championImageElement = document.querySelector('[data-display-champion]');
         this.profileIconImageElement = document.querySelector('[data-display-profile-icon]');
         this.nameElement = document.querySelector('[data-display-name]');
+
+        this.displayElement?.addEventListener('click', this.click.bind(this));
 
         this.loadChampion();
         this.loadName();
@@ -35,6 +38,10 @@ class DisplayPage implements IPage {
 
     private loadProfileIcon(iconCode: number): void {
         this.profileIconImageElement?.setAttribute('src', `https://ddragon.leagueoflegends.com/cdn/${storageService.get(storageKeys.DDragonVersion)}/img/profileicon/${iconCode}.png`);
+    }
+
+    private click(): void {
+        MenuService.show();
     }
 }
 

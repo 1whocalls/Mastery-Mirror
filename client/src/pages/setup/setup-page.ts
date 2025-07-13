@@ -28,9 +28,9 @@ class SetupPage implements IPage {
         const response: IAccountInfo | null = await HttpService.getPuuid(gameName);
 
         if (response != null) {
-            storageService.save(storageKeys.GameName, response.gameName);
-            storageService.save(storageKeys.Puuid, response.puuid);
-            storageService.save(storageKeys.TagLine, response.tagLine);
+            storageService.set(storageKeys.GameName, response.gameName);
+            storageService.set(storageKeys.Puuid, response.puuid);
+            storageService.set(storageKeys.TagLine, response.tagLine);
 
             routerService.goToUrl(Routes.Champions);
         } else {

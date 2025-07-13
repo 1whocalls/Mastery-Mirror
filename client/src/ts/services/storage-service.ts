@@ -1,5 +1,5 @@
 class StorageService {
-    public save(key: string, value: string): void {
+    public set(key: string, value: string): void {
         localStorage.setItem(key, value);
     }
 
@@ -11,6 +11,10 @@ class StorageService {
         }
 
         return "";
+    }
+
+    public clear(): void {
+        localStorage.clear();
     }
 }
 

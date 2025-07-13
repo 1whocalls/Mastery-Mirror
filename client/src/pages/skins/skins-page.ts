@@ -35,7 +35,7 @@ class SkinsPage implements IPage {
     }
 
     private click(skinCode: number): void {
-        storageService.save(storageKeys.SkinCode, String(skinCode));
+        storageService.set(storageKeys.SkinCode, String(skinCode));
         routerService.goToUrl(Routes.Display);
     }
 }

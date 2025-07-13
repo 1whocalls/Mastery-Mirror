@@ -13,14 +13,14 @@ class HttpService {
         if (response.ok) {
             const versions = await response.json();
 
-            storageService.save(storageKeys.DDragonVersion, versions[0]);
+            storageService.set(storageKeys.DDragonVersion, versions[0]);
         } else {
             notificationSerice.add(
                 new Notification('Could not retrieve latest skins, some skins may be missing', 4)
             );
 
             // Latest version as of making this commit
-            storageService.save(storageKeys.DDragonVersion, '15.12.1');
+            storageService.set(storageKeys.DDragonVersion, '15.12.1');
         }
     }
 
@@ -35,7 +35,7 @@ class HttpService {
             if (response.ok) {
                 SpinnerService.hide();
 
-                storageService.save(storageKeys.RegionCode, element.code);
+                storageService.set(storageKeys.RegionCode, element.code);
 
                 return JSON.parse(await response.json());
             }
