@@ -7,6 +7,7 @@ import './components/router/router'; // Router component needs to be loaded last
 
 import './pages/setup/setup-page';
 import './pages/champions/champions-page';
+import './pages/display/display-page';
 
 // Ensures only 1 Service exists and is created (only load services if they have logic in the constructor)
 import './ts/services/notification-service';

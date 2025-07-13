@@ -23,15 +23,20 @@ class SkinsPage implements IPage {
         const skins = await httpService.getSkins();
         const championName = storageService.get(storageKeys.ChampionName);
 
-        console.log(skins);
-
         for (const skin of (skins as ISkins).data[championName].skins) {
             const newSkin = `<champion-skin-component src="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${championName}_${skin.num}.jpg" alt="${skin.name}"></champion-skin-component>`;
 
             this.skinsElement?.insertAdjacentHTML("beforeend", newSkin);
 
             const skinElement = this.skinsElement?.querySelector(`img[alt="${skin.name}"]`)?.parentElement;
+
+            skinElement?.addEventListener('click', this.click.bind(this, skin.num));
         }
+    }
+
+    private click(skinCode: number): void {
+        storageService.save(storageKeys.SkinCode, String(skinCode));
+        routerService.goToUrl(Routes.Display);
     }
 }
 

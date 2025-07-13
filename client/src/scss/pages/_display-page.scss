@@ -1,0 +1,25 @@
+.display {
+    &__champion {
+        display: block; // inline image with 100vh causes scrollbar
+        height: 100vh;
+    }
+
+    &__bottom {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+    }
+
+    &__icon {
+        width: 55%;
+        border-radius: 50%;
+    }
+
+    &__name {
+        color: white;
+    }
+}

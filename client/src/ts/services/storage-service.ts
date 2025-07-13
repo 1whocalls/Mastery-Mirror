@@ -23,7 +23,6 @@ export const storageKeys = {
     DDragonVersion: 'ddragonversion',
     ChampionName: 'championname',
     SkinCode: 'skincode',
-    ProfileIconCode: 'profileiconcode'
 }
 
 export const storageService = new StorageService;

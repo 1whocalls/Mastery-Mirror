@@ -7,17 +7,14 @@ class Router extends HTMLElement {
     constructor() {
         super();
 
-        // Temp check if routing is possible
-        // Todo refactor to only go to detail page when name, champion and skin are chosen
-        if (storageService.get(storageKeys.Puuid) !== null) {
-            const championsPage = routerService.getUrlHtml(Routes.Champions);
-            this.loadPage(championsPage);
-            routerService.callUrlClass();
+        // Localstorage returns an empty string if nothing is found
+        if (storageService.get(storageKeys.SkinCode) !== "") {
+            const displayPage = routerService.getUrlHtml(Routes.Display);
+            this.loadPage(displayPage);
         }
         else {
             const setupPage = routerService.getUrlHtml(Routes.Setup);
             this.loadPage(setupPage);
-            routerService.callUrlClass();
         }
     }
 
@@ -31,11 +28,11 @@ class Router extends HTMLElement {
         }
 
         this.loadPage(newPage);
-        routerService.callUrlClass();
     }
 
     private loadPage(page: string): void {
         this.innerHTML = page;
+        routerService.callUrlClass();
     }
 }
 

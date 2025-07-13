@@ -1,5 +1,6 @@
 import type IAccountInfo from '../interfaces/i-account-info';
 import type { IChampions } from '../interfaces/i-champions';
+import type IDisplayInfo from '../interfaces/i-display-info';
 import Regions from '../regions.json';
 import { Notification, notificationSerice } from './notification-service';
 import SpinnerService from './spinner-service';
@@ -27,12 +28,14 @@ class HttpService {
         SpinnerService.show();
 
         for (const element of Regions) {
-            const response: Response = await fetch(`http://localhost:3000/acount/${element.region}/${gameName}/${element.tagLine}`);
+            const response: Response = await fetch(`http://localhost:3000/account/${element.region}/${gameName}/${element.tagLine}`);
 
             // Todo check all regions and if more than 1 returns return list so user can choose
 
             if (response.ok) {
                 SpinnerService.hide();
+
+                storageService.save(storageKeys.RegionCode, element.code);
 
                 return JSON.parse(await response.json());
             }
@@ -59,13 +62,17 @@ class HttpService {
         }
     }
 
-    private async storeProfileIconCode(): Promise<void> {
-        const response: Response = await fetch(`https://${/* Get regioncode from storage */1}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${/* Get puuid from storage */1}`); // proxy adds api key ?api_key=apiKey
+    public async getProfileIconCode(): Promise<IDisplayInfo | null> {
+        const iconCodeResponse: Response = await fetch(`http://localhost:3000/iconcode/${storageService.get(storageKeys.RegionCode)}/${storageService.get(storageKeys.Puuid)}`);
 
-        if (response.ok) {
-            // Save profileIconCode
+        if (iconCodeResponse.ok) {
+            return JSON.parse(await iconCodeResponse.json());
         } else {
-            // Display message "Could not retrieve profile icon" for 3 seconds
+            notificationSerice.add(
+                new Notification('Could not retrieve profile icon', 3)
+            );
+
+            return null;
         }
     }
 
