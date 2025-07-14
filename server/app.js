@@ -1,32 +1,30 @@
-import express from 'express';
-import cors from 'cors';
+import { AutoRouter, cors, json } from 'itty-router';
+import { fetcher } from 'itty-fetcher'
 import 'dotenv/config';
 
-const app = express();
-const port = 3000;
+const { preflight, corsify } = cors()
 
-app.use(cors({
-    origin: process.env.SITE_URL
-}));
+const router = AutoRouter({
+    before: [preflight],   // Handles OPTIONS requests
+    finally: [corsify],    // Adds CORS headers to responses
+})
 
-app.get('/account/:region/:gamename/:tagline', async (req, res) => {
-    const fetchResponse = await fetch(`https://${req.params.region}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${req.params.gamename}/${req.params.tagline}?api_key=${process.env.API_KEY}`);
-
-    if (fetchResponse.ok) {
-        res.json(await fetchResponse.text());
-    } else {
-        res.status(404).send("Not found.");
+router.get('/account/:region/:gamename/:tagline', async (request, env) => {
+    try {
+        const fetchResponse = await fetcher().get(`https://${request.params.region}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${request.params.gamename}/${request.params.tagline}?api_key=${env.API_KEY}`);
+        return json(fetchResponse);
+    } catch (error) {
+        return error(404, "Not found.");
     }
 });
 
-app.get('/iconcode/:region/:puuid', async (req, res) => {
-    const fetchResponse = await fetch(`https://${req.params.region}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${req.params.puuid}?api_key=${process.env.API_KEY}`);
-
-    if (fetchResponse.ok) {
-        res.json(await fetchResponse.text());
-    } else {
-        res.status(404).send("Not found.");
+router.get('/iconcode/:region/:puuid', async (request, env) => {
+    try {
+        const fetchResponse = await fetcher().get(`https://${request.params.region}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${request.params.puuid}?api_key=${env.API_KEY}`);
+        return json(fetchResponse);
+    } catch (error) {
+        return error(404, "Not found.");
     }
 });
 
-app.listen(port);
+export default router;

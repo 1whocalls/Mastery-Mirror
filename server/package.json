@@ -1,8 +1,9 @@
 {
   "dependencies": {
-    "cors": "^2.8.5",
     "dotenv": "^16.5.0",
-    "express": "^5.1.0"
+    "itty-fetcher": "^1.0.3",
+    "itty-router": "^5.0.18",
+    "wrangler": "^4.24.3"
   },
   "type": "module"
 }
