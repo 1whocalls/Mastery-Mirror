@@ -1,4 +1,3 @@
-/// <reference path="../html.d.ts" />
 import ButtonTemplate from './button.html?raw';
 import ComponentBase from '../component-base';
 import { ComponentProperty, HtmlAttribute } from '../component-property';

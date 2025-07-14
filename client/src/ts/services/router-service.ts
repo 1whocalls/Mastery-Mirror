@@ -1,4 +1,3 @@
-/// <reference path="../../components/html.d.ts" />
 import SetupPage from '../../pages/setup/setup-page';
 import SetupPageHtml from '../../pages/setup/setup-page.html?raw';
 import ChampionsPage from '../../pages/champions/champions-page';

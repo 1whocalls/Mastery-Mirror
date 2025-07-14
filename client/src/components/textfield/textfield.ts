@@ -1,4 +1,3 @@
-/// <reference path="../html.d.ts" />
 import TextfieldTemplate from './textfield.html?raw';
 import ComponentBase from '../component-base';
 import { ComponentProperty, HtmlAttribute } from '../component-property';

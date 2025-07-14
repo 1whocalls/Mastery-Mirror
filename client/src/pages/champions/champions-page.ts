@@ -1,5 +1,6 @@
 import type { IChampion } from "../../ts/interfaces/i-champions";
 import type IPage from "../../ts/interfaces/i-page";
+import ChampionSchema from "../../ts/schemas/champion-schema";
 import httpService from "../../ts/services/http-service";
 import { routerService, Routes } from "../../ts/services/router-service";
 import { storageKeys, storageService } from "../../ts/services/storage-service";
@@ -15,10 +16,10 @@ class ChampionsPage implements IPage {
         this.championsElement = document.querySelector('[data-champions]');
         this.searchElement = document.getElementsByName('search')[0] as HTMLInputElement;
 
-        if (champions !== null) {
+        // Ensure champions are loaded only once
+        if (champions !== null && this.champions.length === 0) {
             for (const champion in champions.data) {
-                const typedChampion = champions.data[champion] as IChampion;
-
+                const typedChampion = new ChampionSchema(champions.data[champion].id);
                 this.champions.push(typedChampion);
             }
         }
@@ -44,13 +45,16 @@ class ChampionsPage implements IPage {
     }
 
     private search(): void {
-        const searchInput = this.searchElement?.value!;
+        const searchInput = this.searchElement?.value;
 
-        for (const el of this.championElements) {
-            if (el.name.includes(searchInput)) {
-                el.show();
-            } else {
-                el.hide();
+        if (searchInput != undefined) {
+            for (const el of this.championElements) {
+                // Check for uppercase and lowecase
+                if (el.name.includes(searchInput) || el.name.toLowerCase().includes(searchInput)) {
+                    el.show();
+                } else {
+                    el.hide();
+                }
             }
         }
     }

@@ -1,4 +1,3 @@
-/// <reference path="../html.d.ts" />
 import MenuTemplate from './menu.html?raw';
 import ComponentBase from '../component-base';
 import { routerService, Routes } from '../../ts/services/router-service';
