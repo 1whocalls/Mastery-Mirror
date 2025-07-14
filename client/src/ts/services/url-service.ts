@@ -4,7 +4,7 @@ class UrlService {
             return 'http://127.0.0.1:8787';
         }
 
-        return 'https://mastery-mirror-api.1whocalls.workers.dev/';
+        return 'https://mastery-mirror-api.1whocalls.workers.dev';
     }
 }
 
