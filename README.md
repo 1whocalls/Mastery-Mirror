@@ -10,7 +10,7 @@ npm install
 In /server folder run:
 
 ```bash
-npm install wrangler
+npm install
 ```
 
 ## Develop
