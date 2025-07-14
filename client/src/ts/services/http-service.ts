@@ -5,6 +5,7 @@ import Regions from '../regions.json';
 import { Notification, notificationSerice } from './notification-service';
 import SpinnerService from './spinner-service';
 import { storageKeys, storageService } from './storage-service';
+import urlService from './url-service';
 
 class HttpService {
     private async setDdragonVersion(): Promise<void> {
@@ -28,7 +29,7 @@ class HttpService {
         SpinnerService.show();
 
         for (const element of Regions) {
-            const response: Response = await fetch(`http://localhost:3000/account/${element.region}/${gameName}/${element.tagLine}`);
+            const response: Response = await fetch(`${urlService.get()}/account/${element.region}/${gameName}/${element.tagLine}`);
 
             // Todo check all regions and if more than 1 returns return list so user can choose
 
@@ -63,7 +64,7 @@ class HttpService {
     }
 
     public async getProfileIconCode(): Promise<IDisplayInfo | null> {
-        const iconCodeResponse: Response = await fetch(`http://localhost:3000/iconcode/${storageService.get(storageKeys.RegionCode)}/${storageService.get(storageKeys.Puuid)}`);
+        const iconCodeResponse: Response = await fetch(`${urlService.get()}/iconcode/${storageService.get(storageKeys.RegionCode)}/${storageService.get(storageKeys.Puuid)}`);
 
         if (iconCodeResponse.ok) {
             return JSON.parse(await iconCodeResponse.json());
