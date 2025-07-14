@@ -1,5 +1,5 @@
 {
-    "name": "mastery-mirror-api-",
+    "name": "mastery-mirror-api",
     "main": "app.js",
     "compatibility_flags": [
         "nodejs_compat"
