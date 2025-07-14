@@ -1,8 +1,15 @@
 # Mastery Mirror
 
-## install
-npm install -d wrangler
+## Install
+In /client folder run
+- npm install
 
-## develop
-npm run dev
-npx wrangler dev
+In /server folder run
+- npm install wrangler
+
+## Develop
+In /client folder run
+- npm run dev
+
+In /server folder run
+- npx wrangler dev
