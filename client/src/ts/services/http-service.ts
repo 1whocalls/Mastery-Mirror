@@ -38,7 +38,7 @@ class HttpService {
 
                 storageService.set(storageKeys.RegionCode, element.code);
 
-                return JSON.parse(await response.json());
+                return await response.json();
             }
         }
 
@@ -67,7 +67,7 @@ class HttpService {
         const iconCodeResponse: Response = await fetch(`${urlService.get()}/iconcode/${storageService.get(storageKeys.RegionCode)}/${storageService.get(storageKeys.Puuid)}`);
 
         if (iconCodeResponse.ok) {
-            return JSON.parse(await iconCodeResponse.json());
+            return await iconCodeResponse.json();
         } else {
             notificationSerice.add(
                 new Notification('Could not retrieve profile icon', 3)
