@@ -1,4 +1,4 @@
-<form>
-    <input v-model="name" placeholder="Enter your game name" required>
-    <button @click="next">Next</button>
+<form class="structure-vertical structure-vertical--align-center">
+    <textfield-component placeholder="Enter your game name" name="gameName"></textfield-component>
+    <button-component text="Next" click-event="setup-next"></button-component>
 </form>

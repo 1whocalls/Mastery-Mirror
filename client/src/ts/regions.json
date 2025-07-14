@@ -1,0 +1,92 @@
+[
+    {
+        "name": "Europe West",
+        "tagLine": "EUW",
+        "region": "europe",
+        "code": "EUW1"
+    },
+    {
+        "name": "Europe Nordic & East",
+        "tagLine": "EUNE",
+        "region": "europe",
+        "code": "EUN1"
+    },
+    {
+        "name": "Turkey",
+        "tagLine": "TR1",
+        "region": "europe",
+        "code": "TR1"
+    },
+    {
+        "name": "North America",
+        "tagLine": "NA1",
+        "region": "americas",
+        "code": "NA1"
+    },
+    {
+        "name": "Brazil",
+        "tagLine": "BR1",
+        "region": "americas",
+        "code": "BR1"
+    },
+    {
+        "name": "Latin America North",
+        "tagLine": "LAN",
+        "region": "americas",
+        "code": "LA1"
+    },
+    {
+        "name": "Latin America South",
+        "tagLine": "LAS",
+        "region": "americas",
+        "code": "LA2"
+    },
+    {
+        "name": "Korea",
+        "tagLine": "KR1",
+        "region": "asia",
+        "code": "KR"
+    },
+    {
+        "name": "Japan",
+        "tagLine": "JP1",
+        "region": "asia",
+        "code": "JP1"
+    },
+    {
+        "name": "Russia",
+        "tagLine": "RU1",
+        "region": "asia",
+        "code": "RU"
+    },
+    {
+        "name": "Taiwan",
+        "tagLine": "TW2",
+        "region": "asia",
+        "code": "TW2"
+    },
+    {
+        "name": "Vietnam",
+        "tagLine": "VN2",
+        "region": "asia",
+        "code": "VN2"
+    },
+    {
+        "name": "Middle East",
+        "tagLine": "ME1",
+        "region": "asia",
+        "code": "ME1"
+    },
+    {
+        "name": "Oceania",
+        "tagLine": "OCE",
+        "region": "asia",
+        "code": "OC1"
+    },
+    {
+        "name": "Southeast Asia",
+        "tagLine": "SG2",
+        "region": "asia",
+        "code": "SG2"
+    }
+]
