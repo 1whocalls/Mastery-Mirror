@@ -1,4 +1,3 @@
-/// <reference path="../html.d.ts" />
 import SpinnerTemplate from './spinner.html?raw';
 import ComponentBase from '../component-base';
 

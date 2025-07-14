@@ -44,13 +44,15 @@ class ChampionsPage implements IPage {
     }
 
     private search(): void {
-        const searchInput = this.searchElement?.value!;
+        const searchInput = this.searchElement?.value;
 
-        for (const el of this.championElements) {
-            if (el.name.includes(searchInput)) {
-                el.show();
-            } else {
-                el.hide();
+        if (searchInput != undefined) {
+            for (const el of this.championElements) {
+                if (el.name.includes(searchInput)) {
+                    el.show();
+                } else {
+                    el.hide();
+                }
             }
         }
     }

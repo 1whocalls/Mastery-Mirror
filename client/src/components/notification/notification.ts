@@ -1,4 +1,3 @@
-/// <reference path="../html.d.ts" />
 import NotificationTemplate from './notification.html?raw';
 import ComponentBase from '../component-base';
 
