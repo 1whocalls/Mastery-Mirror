@@ -18,10 +18,11 @@ class Router extends HTMLElement {
         }
     }
 
-    attributeChangedCallback(name: string, oldValue: string, newValue: string) {
+    // Underscore (_name, _oldValue and _key) is because they aren't used and the build fails otherwise
+    attributeChangedCallback(_name: string, _oldValue: string, newValue: string) {
         let newPage: string = "";
 
-        for (const [key, value] of Object.entries(Routes)) {
+        for (const [_key, value] of Object.entries(Routes)) {
             if (newValue === value) {
                 newPage = routerService.getUrlHtml(value);
             }
