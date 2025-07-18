@@ -50,7 +50,7 @@ class ChampionsPage implements IPage {
         if (searchInput != undefined) {
             for (const el of this.championElements) {
                 // Check for uppercase and lowecase
-                if (el.name.includes(searchInput) || el.name.toLowerCase().includes(searchInput)) {
+                if (el.name.toLowerCase().includes(searchInput.toLowerCase())) {
                     el.show();
                 } else {
                     el.hide();
