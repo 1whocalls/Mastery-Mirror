@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% if build.env == "production" %}
+  <script type="stylesheet" src="assets/style.css"></script>
+  {% else %}
+  <script type="stylesheet" src="http://localhost:5173/src/scss/main.scss"></script>
+  {% endif %}
+  <title>Mastery Mirror</title>
+</head>
+
+<body>
+  {{ content }}
+  <notification-component></notification-component>
+  <spinner-component></spinner-component>
+  {% if build.env == "production" %}
+  <script type="text/javascript" src="assets/main.js"></script>
+  {% else %}
+  <script type="text/javascript" src="http://localhost:5173/src/main.ts"></script>
+  {% endif %}
+</body>
+
+</html>

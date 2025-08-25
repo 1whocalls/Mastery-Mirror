@@ -1,6 +1,6 @@
-import type IPage from "../../ts/interfaces/i-page";
-import httpService from "../../ts/services/http-service";
-import MenuService from "../../ts/services/menu-service";
+import type IPage from "../interfaces/i-page";
+import httpService from "../services/http-service";
+import MenuService from "../services/menu-service";
 import { storageKeys, storageService } from "../../ts/services/storage-service";
 
 class DisplayPage implements IPage {

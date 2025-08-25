@@ -1,4 +1,4 @@
-import ButtonTemplate from './button.html?raw';
+import ButtonTemplate from './index.html?raw';
 import ComponentBase from '../component-base';
 import { ComponentProperty, HtmlAttribute } from '../component-property';
 

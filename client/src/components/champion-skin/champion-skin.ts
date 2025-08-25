@@ -1,4 +1,4 @@
-import SkinTemplate from './champion-skin.html?raw';
+import SkinTemplate from './index.html?raw';
 import ComponentBase from '../component-base';
 import { ComponentProperty, HtmlAttribute } from '../component-property';
 

@@ -1,4 +1,4 @@
-import NotificationTemplate from './notification.html?raw';
+import NotificationTemplate from './index.html?raw';
 import ComponentBase from '../component-base';
 
 class Notification extends ComponentBase {

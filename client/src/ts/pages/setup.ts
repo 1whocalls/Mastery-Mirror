@@ -1,9 +1,9 @@
-import type IAccountInfo from "../../ts/interfaces/i-account-info";
-import type IPage from "../../ts/interfaces/i-page";
-import HttpService from "../../ts/services/http-service";
-import { Notification, notificationSerice } from "../../ts/services/notification-service";
-import { routerService, Routes } from "../../ts/services/router-service";
-import { storageKeys, storageService } from "../../ts/services/storage-service";
+import type IAccountInfo from "../interfaces/i-account-info";
+import type IPage from "../interfaces/i-page";
+import HttpService from "../services/http-service";
+import { Notification, notificationSerice } from "../services/notification-service";
+import { routerService, Routes } from "../services/router-service";
+import { storageKeys, storageService } from "../services/storage-service";
 
 class SetupPage implements IPage {
     public pageCreate() {

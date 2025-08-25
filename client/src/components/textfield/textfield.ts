@@ -1,4 +1,4 @@
-import TextfieldTemplate from './textfield.html?raw';
+import TextfieldTemplate from './index.html?raw';
 import ComponentBase from '../component-base';
 import { ComponentProperty, HtmlAttribute } from '../component-property';
 

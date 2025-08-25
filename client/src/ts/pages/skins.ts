@@ -1,8 +1,8 @@
-import type IPage from "../../ts/interfaces/i-page";
-import type { ISkins } from "../../ts/interfaces/i-skins";
-import httpService from "../../ts/services/http-service";
-import { routerService, Routes } from "../../ts/services/router-service";
-import { storageKeys, storageService } from "../../ts/services/storage-service";
+import type IPage from "../interfaces/i-page";
+import type { ISkins } from "../interfaces/i-skins";
+import httpService from "../services/http-service";
+import { routerService, Routes } from "../services/router-service";
+import { storageKeys, storageService } from "../services/storage-service";
 
 class SkinsPage implements IPage {
     private skinsElement: HTMLElement | null = null;

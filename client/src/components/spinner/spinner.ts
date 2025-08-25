@@ -1,4 +1,4 @@
-import SpinnerTemplate from './spinner.html?raw';
+import SpinnerTemplate from './index.html?raw';
 import ComponentBase from '../component-base';
 
 class Spinner extends ComponentBase {

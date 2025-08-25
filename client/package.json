@@ -1,14 +1,17 @@
 {
-  "name": "vite-project",
+  "name": "mastery-mirror",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "dev": "concurrently --kill-others \"npx eleventy --serve --incremental\" \"vite\"",
+    "build": "cross-env ELEVENTY_ENV=production npx eleventy && npx vite build"
   },
   "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "@11ty/eleventy-plugin-vite": "^7.0.0",
+    "concurrently": "^9.2.0",
+    "cross-env": "^10.0.0",
     "oxlint": "^1.6.0",
     "sass": "^1.89.2",
     "typescript": "~5.8.3",

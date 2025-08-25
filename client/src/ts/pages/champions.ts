@@ -1,9 +1,9 @@
-import type { IChampion } from "../../ts/interfaces/i-champions";
-import type IPage from "../../ts/interfaces/i-page";
-import ChampionSchema from "../../ts/schemas/champion-schema";
-import httpService from "../../ts/services/http-service";
-import { routerService, Routes } from "../../ts/services/router-service";
-import { storageKeys, storageService } from "../../ts/services/storage-service";
+import type { IChampion } from "../interfaces/i-champions";
+import type IPage from "../interfaces/i-page";
+import ChampionSchema from "../schemas/champion-schema";
+import httpService from "../services/http-service";
+import { routerService, Routes } from "../services/router-service";
+import { storageKeys, storageService } from "../services/storage-service";
 
 class ChampionsPage implements IPage {
     private champions: Array<IChampion> = [];

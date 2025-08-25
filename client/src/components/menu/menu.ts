@@ -1,4 +1,4 @@
-import MenuTemplate from './menu.html?raw';
+import MenuTemplate from './index.html?raw';
 import ComponentBase from '../component-base';
 import { routerService, Routes } from '../../ts/services/router-service';
 import { storageService } from '../../ts/services/storage-service';
