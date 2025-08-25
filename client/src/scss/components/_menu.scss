@@ -7,6 +7,8 @@
     height: 100vh;
     justify-content: center;
     align-items: center;
+    container-name: menu;
+    container-type: inline-size;
     background: rgba(0, 0, 0, 0.5);
     top: 0;
     left: 0;
@@ -28,6 +30,7 @@
     }
 
     &__button {
+        font-size: 5cqw;
         border-bottom: 1px solid transparent;
         padding: 10px 0;
 
@@ -42,8 +45,17 @@
 
     &__close {
         position: absolute;
+        width: 8cqw;
+        aspect-ratio: 1/1;
+        background-image: url("../../../public/close.svg");
+        background-repeat: no-repeat;
+        transition: rotate 0.5s ease-in-out;
         top: 0;
         right: 0;
-        padding: var(--spacing-large);
+        margin: 2cqh;
+
+        &:hover {
+            rotate: 90deg;
+        }
     }
 }
