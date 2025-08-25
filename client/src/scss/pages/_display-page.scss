@@ -3,8 +3,8 @@
     cursor: pointer;
 
     &__champion {
-        display: block; // inline image with 100vh causes scrollbar
-        height: 100vh;
+        display: block; // inline image with 100dvh causes scrollbar
+        height: 100dvh;
     }
 
     &__bottom {
